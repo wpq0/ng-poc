@@ -74,6 +74,6 @@ describe('Component: DynamicFormComponent', () => {
         component.formGroup.controls['first'].setValue('pizza');
         component.submit();
 
-        expect(component.payload).toEqual(JSON.stringify({first: 'pizza', second: ''}, null, 4));
+        expect(component.payload).toEqual(JSON.stringify({ first: 'pizza', second: '' }, null, 4));
     });
 });

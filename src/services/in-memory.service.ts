@@ -65,6 +65,62 @@ export class FauxFormsService implements InMemoryDbService {
             }
         ];
 
-        return {forms};
+        const tree = [
+            {
+                id: 1,
+                type: "category",
+                name: "Category 1",
+                children: [
+                    {
+                        id: 2,
+                        type: "category",
+                        name: "Category 2",
+                        children: [
+                            {
+                                id: 3,
+                                type: "product",
+                                name: "Product 3",
+                            },
+                            {
+                                id: 4,
+                                type: "product",
+                                name: "Product 4",
+                            },
+                        ]
+                    },
+                    {
+                        id: 5,
+                        type: "category",
+                        name: "Category 5",
+                        children: [
+                            {
+                                id: 6,
+                                type: "product",
+                                name: "Product 6",
+                            }
+                        ]
+                    },
+                ]
+            },
+            {
+                id: 7,
+                type: "category",
+                name: "Category 7",
+                children: [
+                    {
+                        id: 8,
+                        type: "product",
+                        name: "Product 8",
+                    },
+                    {
+                        id: 9,
+                        type: "product",
+                        name: "Product 9",
+                    },
+                ]
+            },
+        ];
+
+        return { forms, tree };
     }
 }

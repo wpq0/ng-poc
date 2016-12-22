@@ -10,20 +10,22 @@ import { FauxFormsService } from './services/in-memory.service';
 import { RestService } from './services/rest.service';
 
 import {
-    AppComponent,
+    MainComponent,
+    CategoryTreeComponent,
     DynamicFormComponent,
     DynamicQuestionComponent
 } from './components';
 
 @NgModule({
-    bootstrap: [ AppComponent ],
-    declarations: [ AppComponent, DynamicFormComponent, DynamicQuestionComponent ],
+    bootstrap: [MainComponent],
+    declarations: [MainComponent, CategoryTreeComponent, DynamicFormComponent, DynamicQuestionComponent],
     imports: [
         BrowserModule,
         HttpModule,
         InMemoryWebApiModule.forRoot(FauxFormsService),
         ReactiveFormsModule
     ],
-    providers: [ FormService, RestService ]
+    providers: [FormService, RestService]
 })
-export class AppModule {}
+
+export class AppModule { }
