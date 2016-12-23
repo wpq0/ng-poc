@@ -1,10 +1,6 @@
-{{ funcCounter$ | async }}
-
-<button (click)="clicked()">Click</button>
-
 <ul>
     <li *ngFor="let treeNode of treeNodes">
-        <span><input type="checkbox"/>{{ treeNode.name }}</span>
-        <!--<category-tree *ngIf="treeNode.children && treeNode.children.length > 0" [treeNodes]="treeNode.children"></category-tree>-->
+        <a href="/content/category/{{treeNode.id}}">{{treeNode.name}}</a>
+        <category-tree *ngIf="treeNode.children && treeNode.children.length > 0" [treeNodes]="treeNode.children"></category-tree>
     </li>
 </ul>
