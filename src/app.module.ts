@@ -17,6 +17,7 @@ import { SearchActions } from './actions/search.actions';
 
 import {
     MainComponent,
+    TextInputComponent,
     CategoryTreeComponent,
     DynamicFormComponent,
     DynamicQuestionComponent
@@ -26,9 +27,11 @@ import {
     bootstrap: [MainComponent],
     declarations: [
         MainComponent,
+        TextInputComponent,
         CategoryTreeComponent,
         DynamicFormComponent,
-        DynamicQuestionComponent],
+        DynamicQuestionComponent
+    ],
     imports: [
         BrowserModule,
         HttpModule,
