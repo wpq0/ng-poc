@@ -1,4 +1,25 @@
-<div class="form-group field field-string">
-    <input type="text" id="root" label="Name" placeholder="" class="form-control" value="Product 4 EN">
-    <div></div>
-</div>
+<button class="btn btn-primary" (click)="switchMode()">Edit</button>
+
+<div class="text-input-container">
+    <div>{{name}}</div>
+    <div [ngSwitch]="isEditing">
+        <div *ngSwitchCase="false">
+            <h2>View</h2>
+
+            <div *ngFor="let lang of langs">
+                <button class="btn btn-primary">{{lang}}</button>
+            </div>
+        </div>
+        <div *ngSwitchCase="true">
+            <h2>Edit</h2>
+            <div class="form-group field field-string">
+                <input type="text" class="form-control" [ngModel]="selectedValue" (ngModelChange)="onInputChange($event)">
+                <div></div>
+            </div>
+
+            <div *ngFor="let lang of langs">
+                <button class="btn btn-primary">{{lang}}</button>
+            </div>            
+        </div>
+    </div>
+</div> 

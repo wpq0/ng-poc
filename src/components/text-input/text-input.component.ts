@@ -1,9 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { NgRedux, select } from 'ng2-redux';
-import { IAppState } from '../../store';
-
-export let x = state => state.counter;
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'text-input',
@@ -12,17 +7,36 @@ export let x = state => state.counter;
     providers: []
 })
 
-export class TextInputComponent implements OnInit {
+export class TextInputComponent {
 
-    @select(x) funcCounter$: Observable<number>;
+    @Input() isEditing: boolean = false;
+    @Input() name: string;
+    
+    @Input() language: string;
 
-    @Input() treeNodes: string[];
+    @Input() data: { [lang: string]: string };
+    @Output() dataChange: EventEmitter<{ [lang: string]: string }>;
+    
+    selectedValue: string;
 
-    constructor(private ngRedux: NgRedux<IAppState>) {
-
+    get langs(): Array<string> {
+        return Object.keys(this.data);
     }
 
-    ngOnInit() {
-
+    constructor() {
+        this.dataChange = new EventEmitter<{ [lang: string]: string }>();
     }
-}
+
+    switchMode() {
+        this.isEditing = !this.isEditing;
+    }   
+
+    ngOnChanges(changes) {
+        console.log(changes);
+    }
+
+    onInputChange(newValue) {
+        this.data[this.language] = newValue;
+        this.dataChange.emit(this.data);
+    }
+} 

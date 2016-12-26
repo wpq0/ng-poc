@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,6 +19,7 @@ import {
     MainComponent,
     TextInputComponent,
     CategoryTreeComponent,
+    SamplePageComponent,
     DynamicFormComponent,
     DynamicQuestionComponent
 } from './components';
@@ -29,6 +30,7 @@ import {
         MainComponent,
         TextInputComponent,
         CategoryTreeComponent,
+        SamplePageComponent,
         DynamicFormComponent,
         DynamicQuestionComponent
     ],
@@ -36,6 +38,7 @@ import {
         BrowserModule,
         HttpModule,
         InMemoryWebApiModule.forRoot(FauxFormsService),
+        FormsModule,
         ReactiveFormsModule,
         NgReduxModule.forRoot()
     ],
