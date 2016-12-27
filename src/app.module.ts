@@ -18,10 +18,9 @@ import { SearchActions } from './actions/search.actions';
 import {
     MainComponent,
     TextInputComponent,
+    EditorInputComponent,
     CategoryTreeComponent,
     SamplePageComponent,
-    DynamicFormComponent,
-    DynamicQuestionComponent
 } from './components';
 
 @NgModule({
@@ -29,10 +28,9 @@ import {
     declarations: [
         MainComponent,
         TextInputComponent,
+        EditorInputComponent,
         CategoryTreeComponent,
         SamplePageComponent,
-        DynamicFormComponent,
-        DynamicQuestionComponent
     ],
     imports: [
         BrowserModule,

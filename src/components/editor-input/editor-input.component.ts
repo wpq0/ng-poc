@@ -1,20 +1,20 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'text-input',
-    styles: [require('./text-input.component.scss')],
-    template: require('./text-input.component.html'),
+    selector: 'editor-input',
+    styles: [require('./editor-input.component.scss')],
+    template: require('./editor-input.component.html'),
     providers: []
 })
 
-export class TextInputComponent {
+export class EditorInputComponent {
 
     @Input() isEditing: boolean = false;
     @Input() name: string;
     @Input() currentLang: string = 'SV';
     @Input() data: { [lang: string]: string };
     @Output() dataChange: EventEmitter<{ [lang: string]: string }>;
-    
+
     get langs(): Array<string> {
         return Object.keys(this.data);
     }
@@ -25,6 +25,10 @@ export class TextInputComponent {
 
     constructor() {
         this.dataChange = new EventEmitter<{ [lang: string]: string }>();
+    }
+
+    ngOnInit() {
+        //window['CKEDITOR']['replace']('editor1');
     }
 
     switchMode() {

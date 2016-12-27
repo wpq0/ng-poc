@@ -1,0 +1,22 @@
+.editor-input {
+    textarea {
+        width: 100%;
+    }
+
+    .input-title {
+        font-weight: bold;
+    }
+
+    .text-input-container {
+        display: inline-block;
+    }
+
+    .language-switcher {
+        margin-bottom: 10px;
+
+        button {
+            margin-right: 5px;
+        }
+    }
+}
+

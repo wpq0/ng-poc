@@ -24,13 +24,16 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(css|html)$/, loader: 'raw-loader'
+                test: /\.(css|html)$/, 
+                loader: 'raw-loader'
             },
             {
-                test: /\.scss$/, loaders: ['raw-loader', 'sass-loader']
+                test: /\.scss$/, 
+                loaders: ['raw-loader', 'sass-loader']
             },
             {
-                test: /\.(woff2?|ttf|eot|svg)$/, loader: 'url?limit=10000'
+                test: /\.(woff2?|ttf|eot|svg)$/, 
+                loader: 'url?limit=10000'
             },
             {
                 test: /\.(ts)$/,

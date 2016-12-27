@@ -10,16 +10,28 @@ import { IAppState, rootReducer, enhancers } from '../../store/index';
 
 export class SamplePageComponent implements OnInit {
 
-    data: { [lang: string]: string };
+    names: { [lang: string]: string };
+    labels: { [lang: string]: string };
+    tags: { [lang: string]: string };
 
     constructor() {
 
     }
 
     ngOnInit() {
-        this.data = {
-            "SV": "Halu",
-            "EN": "Hello"
+        this.names = {
+            "SV": "Name SV",
+            "EN": "Name EN"
         }
+
+        this.labels = {
+            "SV": "Label SV",
+            "EN": "Label EN"
+        }
+
+        this.tags = {
+            "SV": "Tag SV",
+            "EN": "Tag EN"
+        }        
     }
 }

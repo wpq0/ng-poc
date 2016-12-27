@@ -1,22 +1,24 @@
-<div class="row">
+<div class="editor-input row">
     <div class="col-md-3">
         <span class="input-title">{{name}}</span>
     </div>
 
     <div class="col-md-2">
-        <button class="btn btn-default btn-xs" [ngClass]="{active: isEditing}" (click)="switchMode()">Edit</button>
+        <div class="language-switcher">
+            <button class="btn btn-default btn-xs" [ngClass]="{active: isEditing}" (click)="switchMode()">Edit</button>
+        </div>
     </div>
 
     <div class="col-md-7">
         <div [ngSwitch]="isEditing">
             <div *ngSwitchCase="false">
                 <div class="language-switcher">
-                    <button
-                        class="btn btn-default btn-xs" 
+                    <button 
+                        class="btn btn-default btn-xs"
                         *ngFor="let lang of langs" 
                         [ngClass]="{active: lang === currentLang}" 
                         (click)="switchLang(lang)">
-                        {{lang}} 
+                        {{lang}}
                     </button>
                 </div>
                 <div class="current-value">{{currentValue}}</div>
@@ -31,8 +33,10 @@
                         {{lang}}
                     </button>
                 </div>
-                <input type="text" class="form-control" [ngModel]="currentValue" (ngModelChange)="onInputChange($event)">
+                <textarea [ngModel]="currentValue" (ngModelChange)="onInputChange($event)" rows="10" cols="80">
+                    This is my textarea to be replaced with CKEditor.
+                </textarea>
             </div>
         </div>
     </div>
-</div>
+</div> 
