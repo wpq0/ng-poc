@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgReduxModule, DevToolsExtension } from 'ng2-redux';
@@ -25,11 +25,8 @@ import {
 } from './components';
 
 const appRoutes: Routes = [
-    { path: 'crisis-center', component: SamplePageComponent },
-    { path: 'content/category/:id', component: SamplePageComponent },
-    { path: 'heroes', component: SamplePageComponent, data: { title: 'Heroes List' } },
-    { path: '', redirectTo: '/heroes', pathMatch: 'full' },
-    { path: '**', component: SamplePageComponent }
+    { path: 'category/:id', component: SamplePageComponent },
+    { path: '', redirectTo: 'category/1', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -42,7 +39,7 @@ const appRoutes: Routes = [
         SamplePageComponent,
     ],
     imports: [
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, { useHash: true, preloadingStrategy: PreloadAllModules }),
         BrowserModule,
         HttpModule,
         InMemoryWebApiModule.forRoot(FauxFormsService),

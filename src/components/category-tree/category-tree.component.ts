@@ -6,7 +6,6 @@ import { CounterActions } from '../../actions/counter.actions';
 import { IAppState } from '../../store';
 import { RandomNumberService } from '../../services/random-number.service';
 
-
 export let x = state => state.counter;
 
 @Component({

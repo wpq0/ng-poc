@@ -40,7 +40,7 @@ export class EditorInputComponent {
     }
 
     ngOnChanges(changes) {
-        console.log(changes);
+        //console.log(changes);
     }
 
     onInputChange(newValue) {

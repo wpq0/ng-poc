@@ -1,6 +1,6 @@
 <ul>
     <li *ngFor="let treeNode of treeNodes">
-        <a href="/content/category/{{treeNode.id}}">{{treeNode.name}}</a>
+        <a routerLink="category/{{treeNode.id}}">{{treeNode.name}}</a>
         <category-tree *ngIf="treeNode.children && treeNode.children.length > 0" [treeNodes]="treeNode.children"></category-tree>
     </li>
 </ul>

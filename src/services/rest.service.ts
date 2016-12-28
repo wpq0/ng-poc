@@ -23,6 +23,19 @@ export class RestService {
             });
     }
 
+    getFormById(id: Number) {
+        return this.http.get(`api/forms/${id}`)
+            .map((response) => {
+                const json = response.json();
+
+                if (response.ok) {
+                    return json.data as FormData;
+                } else {
+                    return this.logError(json.data);
+                }
+            });
+    }
+
     getCategoryTree() {
         return this.http.get('api/tree')
             .map((response) => {
@@ -41,7 +54,6 @@ export class RestService {
             error = error.json();
             console.error(error.error);
         } catch (e) {
-            // ...ignore
             console.error(error);
         }
 

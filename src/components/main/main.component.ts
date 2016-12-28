@@ -12,9 +12,7 @@ import thunk from 'redux-thunk';
     template: require('./main.component.html')
 })
 export class MainComponent {
-    forms: FormData[] = null;
     treeNodes: TreeNode[] = null;
-    selectedForm: FormData = null;
 
     constructor(private ngRedux: NgRedux<IAppState>, private devTool: DevToolsExtension, private formService: FormService, private restService: RestService) {
 
@@ -24,17 +22,8 @@ export class MainComponent {
             [thunk],
             [...enhancers, devTool.isEnabled() ? devTool.enhancer() : f => f]);
 
-        restService.getForms().subscribe((forms: FormData[]) => {
-            this.formService.setForms(forms);
-            this.forms = this.formService.getAllForms();
-        });
-
         restService.getCategoryTree().subscribe((nodes: TreeNode[]) => {
             this.treeNodes = nodes;
         });
-    }
-
-    selectForm(formId: number) {
-        this.selectedForm = this.formService.getForm(formId);
     }
 }

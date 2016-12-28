@@ -5,63 +5,138 @@ export class FauxFormsService implements InMemoryDbService {
         const forms = [
             {
                 id: 1,
-                questions: [
-                    {
-                        controlType: 'radio',
-                        id: 'doyou',
-                        label: 'Do you like pizza?',
-                        options: [
-                            { label: 'Yes', value: 1 },
-                            { label: 'Of course', value: 2 }
-                        ],
-                        required: true
-                    },
-                    {
-                        controlType: 'select',
-                        id: 'favorite',
-                        label: 'Which is your favorite pizza?',
-                        options: [
-                            { label: '', value: 'no-answer' },
-                            { label: 'Anchovie', value: 'fish' },
-                            { label: 'Hawaiian', value: 'pineapple-ham' },
-                            { label: 'Meat Lover\'s', value: 'meat lover' },
-                            { label: 'Veggie', value: 'vegetable' }
-                        ],
-                        required: false
-                    },
-                    {
-                        controlType: 'textarea',
-                        id: 'more',
-                        label: 'Gives us your thoughts on pizza:',
-                        required: false
-                    }
-                ],
-                title: 'Pizza Perfection'
+                names: {
+                    "SV": "Name 1 SV",
+                    "EN": "Name 1 EN"
+                },
+                labels: {
+                    "SV": "Label 1 SV",
+                    "EN": "Label 1 EN"
+                },
+                descriptions: {
+                    "SV": "Description 1 SV",
+                    "EN": "Description 1 EN"
+                }
+            },
+            {
+                id: 2,
+                names: {
+                    "SV": "Name 2 SV",
+                    "EN": "Name 2 EN"
+                },
+                labels: {
+                    "SV": "Label 2 SV",
+                    "EN": "Label 2 EN"
+                },
+                descriptions: {
+                    "SV": "Description 2 SV",
+                    "EN": "Description 2 EN"
+                }
+            },
+            {
+                id: 3,
+                names: {
+                    "SV": "Name 3 SV",
+                    "EN": "Name 3 EN"
+                },
+                labels: {
+                    "SV": "Label 3 SV",
+                    "EN": "Label 3 EN"
+                },
+                descriptions: {
+                    "SV": "Description 3 SV",
+                    "EN": "Description 3 EN"
+                }
+            },
+            {
+                id: 4,
+                names: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                labels: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                descriptions: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                }
             },
             {
                 id: 5,
-                questions: [
-                    {
-                        controlType: 'select',
-                        id: 'delicious',
-                        label: 'What is the best cheese for a burger?',
-                        options: [
-                            { label: '', value: 'no-cheese' },
-                            { label: 'American', value: 'american' },
-                            { label: 'Cheddar', value: 'cheddar' },
-                            { label: 'Provolone', value: 'provolone' },
-                            { label: 'Swiss', value: 'swiss' }
-                        ],
-                        required: true
-                    },
-                    {
-                        controlType: 'textarea',
-                        id: 'perfection',
-                        label: 'Describe your perfect burger:',
-                        required: true
-                    }
-                ],
-                title: 'Burger Bonanza'
+                names: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                labels: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                descriptions: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                }
+            },
+            {
+                id: 6,
+                names: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                labels: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                descriptions: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                }
+            },
+            {
+                id: 7,
+                names: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                labels: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                descriptions: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                }
+            },
+            {
+                id: 8,
+                names: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                labels: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                descriptions: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                }
+            },
+            {
+                id: 9,
+                names: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                labels: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                },
+                descriptions: {
+                    "SV": "Name SV",
+                    "EN": "Name EN"
+                }
             }
         ];
 

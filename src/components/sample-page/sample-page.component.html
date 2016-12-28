@@ -1,13 +1,15 @@
-<div class="page-container">
-    <ul class="component-list">
-        <li>
-            <text-input [isEditing]="false" [name]="'Name'" [currentLang]="'SV'" [data]="names"></text-input>
-        </li>
-        <li>
-            <text-input [isEditing]="false" [name]="'Label'" [currentLang]="'SV'" [data]="labels"></text-input>
-        </li>
-        <li>
-            <editor-input [isEditing]="false" [name]="'Description'" [currentLang]="'SV'" [data]="tags"></editor-input>
-        </li>
-    </ul>
+<div *ngIf="form">
+    <div class="page-container">
+        <ul class="component-list">
+            <li>
+                <text-input [isEditing]="false" [name]="'Name'" [currentLang]="'SV'" [data]="form.names"></text-input>
+            </li>
+            <li>
+                <text-input [isEditing]="false" [name]="'Label'" [currentLang]="'SV'" [data]="form.labels"></text-input>
+            </li>
+            <li>
+                <editor-input [isEditing]="false" [name]="'Description'" [currentLang]="'SV'" [data]="form.descriptions"></editor-input>
+            </li>
+        </ul>
+    </div>
 </div>

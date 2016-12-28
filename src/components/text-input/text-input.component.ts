@@ -36,7 +36,7 @@ export class TextInputComponent {
     }
 
     ngOnChanges(changes) {
-        console.log(changes);
+        //console.log(changes);
     }
 
     onInputChange(newValue) {
