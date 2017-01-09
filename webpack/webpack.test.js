@@ -4,8 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
-const rootDir = path.resolve(__dirname, '..');
-const srcPath = path.join(__dirname, "./src");
+const srcPath = path.resolve(__dirname, '../../abc');
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -42,5 +41,8 @@ module.exports = {
         extensions: [
             '.ts', '.js'
         ],
+        alias: {
+            "Dest": path.resolve(__dirname, '../../abc')
+        }
     }
 };
