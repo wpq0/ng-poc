@@ -12,7 +12,7 @@ const browserTesting = require('@angular/platform-browser-dynamic/testing');
 const coreTesting = require('@angular/core/testing');
 const context = require.context('../src/', true, /\.spec\.ts$/);
 
-Error.stackTraceLimit = Infinity;
+Error.stackTraceLimit = 5;
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
 
 coreTesting.TestBed.resetTestEnvironment();
