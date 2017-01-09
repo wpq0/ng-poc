@@ -4,6 +4,7 @@ const HtmlWebpack = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const ChunkWebpack = webpack.optimize.CommonsChunkPlugin;
+const UglifyWebpack = webpack.optimize.UglifyJsPlugin;
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 const rootDir = path.resolve(__dirname, '..');
@@ -24,28 +25,26 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(css|html)$/, 
-                loader: 'raw-loader'
-            },
-            {
-                test: /\.scss$/, 
-                loaders: ['raw-loader', 'sass-loader']
-            },
-            {
-                test: /\.(woff2?|ttf|eot|svg)$/, 
-                loader: 'url?limit=10000'
-            },
-            {
                 test: /\.(ts)$/,
                 exclude: /node_modules/,
-                use: [
-                    'babel-loader',
-                    'ts-loader'
-                ]
+                use: ['babel-loader', 'ts-loader']
             },
             {
-                test: /\.(js)$/, loader: 'babel-loader',
+                test: /\.(js)$/,
+                use: ['babel-loader'],
             },
+            {
+                test: /\.(css|html)$/,
+                use: ['raw-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: ['raw-loader', 'sass-loader']
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                use: 'url?limit=10000'
+            }
         ]
     },
     output: {
@@ -53,6 +52,10 @@ module.exports = {
         path: path.resolve(rootDir, 'dist')
     },
     plugins: [
+        new UglifyWebpack({
+            sourceMap: false,
+            mangle: false
+        }),
         new ChunkWebpack({
             filename: 'vendor.bundle.js',
             minChunks: Infinity,

@@ -2,24 +2,45 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const nodeEnv = process.env.NODE_ENV || 'development';
+const isProd = nodeEnv === 'production';
+const rootDir = path.resolve(__dirname, '..');
+const srcPath = path.join(__dirname, "./src");
 
 module.exports = {
     devtool: 'inline-source-map',
     module: {
-        preLoaders: [
-            { exclude: /node_modules/, loader: 'tslint', test: /\.ts$/ }
-        ],
-        loaders: [
-            { loader: 'raw', test: /\.(css|html)$/ },
-            { exclude: /node_modules/, loader: 'ts', test: /\.ts$/ }
+        rules: [
+            {
+                test: /\.(ts)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader', 'ts-loader']
+            },
+            {
+                test: /\.(js)$/,
+                use: ['babel-loader'],
+            },
+            {
+                test: /\.(css|html)$/,
+                use: ['raw-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: ['raw-loader', 'sass-loader']
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                use: 'url?limit=10000'
+            }
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.ts'],
-        modulesDirectories: ['node_modules'],
-        root: path.resolve('.', 'src')
-    },
-    tslint: {
-        emitErrors: true
+        modules: [
+            "node_modules",
+            srcPath
+        ],
+        extensions: [
+            '.ts', '.js'
+        ],
     }
 };
