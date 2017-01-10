@@ -1,5 +1,5 @@
 /* eslint-env jasmine */
-import { Greeter } from 'Source/services/greater';
+import { Greeter } from 'source/services/greater';
 
 describe('Greeter', () => {
   describe('#say', () => {

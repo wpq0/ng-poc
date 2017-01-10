@@ -45,7 +45,7 @@ module.exports = {
         ],
         extensions: ['.ts', '.js', '.json'],
         alias: {
-            "Source": path.resolve(__dirname, '../../source')
+            "source": path.resolve(__dirname, '../../source')
         }
     }
 };
