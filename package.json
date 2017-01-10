@@ -35,6 +35,8 @@
     "@types/source-map": "^0.5.0",
     "@types/uglify-js": "^2.0.27",
     "@types/webpack": "^2.0.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
     "css-loader": "^0.26.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
