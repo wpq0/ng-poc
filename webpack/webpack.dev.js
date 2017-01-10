@@ -19,7 +19,6 @@ module.exports = {
     target: 'web',
     entry: {
         app: [helpers.root('src/bootstrap.ts')],
-        polyfills: [helpers.root('src/polyfills.ts')],
         vendor: [helpers.root('src/vendor.ts')]
     },
     devServer: {
@@ -74,17 +73,18 @@ module.exports = {
             }
         }),
         new CommonsChunkPlugin({
-            name: 'polyfills',
-            chunks: ['polyfills']
-        }),
-        new CommonsChunkPlugin({
             name: 'vendor',
-            chunks: ['app', 'vendor'],
-            filename: 'vendor.bundle.js',
-            minChunks: module => /node_modules\//.test(module.resource),
+            chunks: ['vendor'],
+            filename: 'vendor.bundle.js'
         }),
         new CommonsChunkPlugin({
-            name: ['polyfills', 'vendor'].reverse()
+            name: 'app',
+            chunks: ['app'],
+            filename: 'app.bundle.js',
+            minChunks: module => /node_modules\//.test(module.resource)
+        }),
+        new CommonsChunkPlugin({
+            name: ['vendor', 'app'].reverse()
         }),
         new HtmlWebpack({
             filename: 'index.html',
