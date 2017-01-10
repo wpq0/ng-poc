@@ -4,17 +4,11 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NgReduxModule, DevToolsExtension } from 'ng2-redux';
-import { rootReducer } from './store/index';
-
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { FormService } from './services/form.service';
 import { FauxFormsService } from './services/in-memory.service';
 import { RestService } from './services/rest.service';
-
-import { CounterActions } from './actions/counter.actions';
-import { SearchActions } from './actions/search.actions';
 
 import {
     MainComponent,
@@ -44,15 +38,11 @@ const appRoutes: Routes = [
         HttpModule,
         InMemoryWebApiModule.forRoot(FauxFormsService),
         FormsModule,
-        ReactiveFormsModule,
-        NgReduxModule.forRoot()
+        ReactiveFormsModule
     ],
     providers: [
         FormService,
-        RestService,
-        CounterActions,
-        SearchActions,
-        DevToolsExtension
+        RestService
     ]
 })
 

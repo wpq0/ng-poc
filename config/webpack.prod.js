@@ -4,10 +4,11 @@ const helpers = require('./helpers');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const HtmlWebpack = require('html-webpack-plugin');
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const UglifyWebpack = webpack.optimize.UglifyJsPlugin;
 
-const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8080;
 const METADATA = {
     host: HOST,
     port: PORT,
@@ -74,17 +75,19 @@ module.exports = {
         }),
         new CommonsChunkPlugin({
             name: 'vendor',
-            chunks: ['vendor'],
-            filename: 'vendor.bundle.js'
+            chunks: ['vendor']
         }),
         new CommonsChunkPlugin({
             name: 'app',
             chunks: ['app'],
-            filename: 'app.bundle.js',
             minChunks: module => /node_modules\//.test(module.resource)
         }),
         new CommonsChunkPlugin({
             name: ['vendor', 'app'].reverse()
+        }),
+        new UglifyWebpack({
+            sourceMap: false,
+            mangle: true
         }),
         new HtmlWebpack({
             filename: 'index.html',
@@ -97,6 +100,6 @@ module.exports = {
             helpers.root("node_modules"),
             helpers.root("src")
         ],
-        extensions: ['.ts', '.js', '.json'],
+        extensions: ['.ts', '.js', '.json']
     }
 };

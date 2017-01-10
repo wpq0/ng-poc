@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgRedux, DevToolsExtension } from 'ng2-redux';
 import { IAppState, rootReducer, enhancers } from '../../store/index';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { RestService } from '../../services/rest.service';

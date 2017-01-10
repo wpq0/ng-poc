@@ -1,11 +1,8 @@
-'use strict';
-
 module.exports = config => {
     config.set({
         autoWatch: true,
         browsers: ['PhantomJS'],
         files: [
-            '../node_modules/es6-shim/es6-shim.min.js',
             'karma.entry.js'
         ],
         frameworks: ['jasmine'],
@@ -19,7 +16,7 @@ module.exports = config => {
         },
         reporters: ['dots'],
         singleRun: true,
-        webpack: require('../webpack/webpack.test.js'),
+        webpack: require('../config/webpack.test.js'),
         webpackServer: {
             noInfo: true
         }
