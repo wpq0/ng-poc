@@ -10,6 +10,7 @@ require('zone.js/dist/jasmine-patch');
 
 const browserTesting = require('@angular/platform-browser-dynamic/testing');
 const coreTesting = require('@angular/core/testing');
+
 const context = require.context('../src/', true, /\.spec\.ts$/);
 
 Error.stackTraceLimit = 5;

@@ -4,6 +4,7 @@ const helpers = require('./helpers');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const HtmlWebpack = require('html-webpack-plugin');
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const UglifyWebpack = webpack.optimize.UglifyJsPlugin;
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
@@ -79,12 +80,16 @@ module.exports = {
         }),
         new CommonsChunkPlugin({
             name: 'vendor',
-            chunks: ['app', 'vendor'],
+            chunks: ['vendor', 'app'],
             filename: 'vendor.bundle.js',
             minChunks: module => /node_modules\//.test(module.resource),
         }),
         new CommonsChunkPlugin({
             name: ['polyfills', 'vendor'].reverse()
+        }),
+        new UglifyWebpack({
+            sourceMap: true,
+            mangle: false
         }),
         new HtmlWebpack({
             filename: 'index.html',
