@@ -14,7 +14,11 @@ module.exports = config => {
         preprocessors: {
             'karma.entry.js': ['webpack', 'sourcemap']
         },
-        reporters: ['dots'],
+        reporters: ['progress', 'tfs'],
+        tfsReporter: {
+            outputDir: 'testresults',
+            outputFile: 'testresults_${date}.xml'
+        },
         singleRun: true,
         webpack: require('../config/webpack.test.js'),
         webpackServer: {

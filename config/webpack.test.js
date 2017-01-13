@@ -4,6 +4,9 @@ const path = require('path');
 const srcPath = path.resolve(__dirname, '../src');
 
 module.exports = {
+    entry: {
+        app: "app.ts"
+    },
     devtool: 'inline-source-map',
     module: {
         rules: [

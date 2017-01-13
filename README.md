@@ -6,10 +6,10 @@ To install all the dependencies run:
 npm i
 ```
 
-For single, headless tests use:
+For testing:
 
 ```shell
-npm run test:headless
+npm run test
 ```
 
 To run code in a browser user:
